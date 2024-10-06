@@ -76,3 +76,25 @@ b = 3
 c = 5
 print(perimeter(a,b,c)) //(a+b+c) = 12
 ```
+## История
+commit b5b0fae727ca72c317c383b39c0af73d6adcd81c (origin/develop, develop)
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 18:02:23 2021 +0300
+
+    L-04: Update docs for calculate.py
+
+commit d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 17:57:42 2021 +0300
+
+    L-04: Add calculate.py
+
+commit 51c40ebfd0e0b65f52fe5e54740cbb038e492db3
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:52:26 2021 +0300
+
+    L-04: Doc updated for triangle
+
+commit d080c7888b81955bad2ed78d58ad910526b5132a
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:48:39 2021 +0300
