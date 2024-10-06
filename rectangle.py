@@ -1,9 +1,7 @@
-
-def area(a):
+def area(a, b):
     '''Принимает число a, возвращает квадрат этого числа - площадь фигуры'''
-    return a * a
+    return a * b
 
-
-def perimeter(a):
+def perimeter(a, b):
     '''Принимает число a, возвращает это число, умноженное на 4 - периметр фигуры'''
-    return 4 * a
+    return (a + b)*2
