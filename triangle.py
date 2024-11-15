@@ -13,7 +13,7 @@ def perimeter(a, b, c):
     '''Принимает три числа a, b, c - стороны треугольника,
     возвращает их сумму - периметр фигуры'''
     if a <= 0 or b <= 0 or c <= 0:
-        raise ValueError("Sides cannot be negative")
+        raise ValueError("Sides cannot be negative.")
     if a + b <= c or a + c <= b or b + c <= a:
         raise ValueError("Sides do not form a valid triangle")
     return a + b + c
