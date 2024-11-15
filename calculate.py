@@ -1,3 +1,6 @@
+import circle
+import square
+import triangle
 figs = ['circle', 'square', 'triangle']  # Список фигур
 funcs = ['perimeter', 'area']  # Список функций
 sizes = {"area-circle": 1,
