@@ -12,4 +12,3 @@ def perimeter(a):
         return 4 * a
     else:
         raise (ValueError)
-
