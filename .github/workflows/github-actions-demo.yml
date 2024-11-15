@@ -1,0 +1,55 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - master
+      - release
+  pull_request:
+    branches:
+      - master
+      - release
+      - develop
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NAME: "Григораш У.В"
+      GROUP: "M3115"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Information
+        run: |
+          echo "ФИО: $NAME"
+          echo "Группа: $GROUP"
+          echo "Ник: ${{ github.actor }}"
+        
+      - name: Python installation
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+          
+      - name: Additional libraries
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Testing
+        run: |
+          pytest
+          
+      - name: Code style check
+        id: lint
+        run: |
+          flake8 . --exit-zero > flake8_report.txt || echo "Lint errors found"
+          
+      - name: Checking style results
+        if: ${{ steps.lint.outputs.lint_pass == 'false' }}
+        run: echo "::error::Linting failed. Formatting code with black..."
+        
+      - name: Formatting code
+        if: failure()
+        run: |
+          black .
+          echo "::notice::Code has been formatted with black. Please commit the changes."
