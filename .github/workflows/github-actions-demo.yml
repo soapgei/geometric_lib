@@ -19,7 +19,7 @@ jobs:
       GROUP: "M3115"
     steps:
       - name: Information
-      - run: |
+        run: |
           echo "ФИО: $NAME"
           echo "Группа: $GROUP"
           echo "Ник: ${{ github.actor }}"
@@ -43,8 +43,7 @@ jobs:
         run: |
           pytest
           
-      - name: Formating code
+      - name: Formatting code
         run: |
           pip install black
-          black . #
-
+          black .
