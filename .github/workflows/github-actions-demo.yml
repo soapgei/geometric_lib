@@ -41,7 +41,7 @@ jobs:
           
       - name: Testing
         run: |
-          coverage run -m pytest -v -s
+          pytest
           
       - name: Formatting code
         run: |
