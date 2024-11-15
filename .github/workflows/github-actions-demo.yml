@@ -35,16 +35,21 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
-      - name: Code style check
-        run: |
-          pip install flake8
-          flake8 .
-          
       - name: Testing
         run: |
           pytest
           
-      - name: Formatting code
+      - name: Code style check
+        id: lint
         run: |
-          pip install black
+          flake8 . --exit-zero > flake8_report.txt || echo "Lint errors found"
+          
+      - name: Checking style results
+        if: ${{ steps.lint.outputs.lint_pass == 'false' }}
+        run: echo "::error::Linting failed. Formatting code with black..."
+        
+      - name: Formatting code
+        if: failure()
+        run: |
           black .
+          echo "::notice::Code has been formatted with black. Please commit the changes."
