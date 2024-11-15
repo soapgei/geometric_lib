@@ -2,11 +2,16 @@ import circle
 import square
 
 
-figs = ['circle', 'square']
-funcs = ['perimeter', 'area']
-sizes = {}
+figs = ['circle', 'square'] #Список фигур
+funcs = ['perimeter', 'area'] #Список функций
+sizes = {} #Словарь для хранения аргументов
 
 def calc(fig, func, size):
+	'''Функция для вычисления периметра или площади заданной фигуры
+	Параметры:
+	fig - имя фигуры
+	func - функция для выполнения
+	size - список размеров'''
 	assert fig in figs
 	assert func in funcs
 
