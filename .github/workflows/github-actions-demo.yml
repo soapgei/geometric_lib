@@ -18,6 +18,7 @@ jobs:
       NAME: "Григораш У.В"
       GROUP: "M3115"
     steps:
+      - uses: actions/checkout@v3
       - name: Information
         run: |
           echo "ФИО: $NAME"
